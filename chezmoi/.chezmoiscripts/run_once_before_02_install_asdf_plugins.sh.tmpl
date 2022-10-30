@@ -1,0 +1,35 @@
+{{- if (eq .chezmoi.os "linux") -}}
+#!/usr/bin/env bash
+
+source $HOME/.asdf/asdf.sh
+
+# "helm"       "latest"
+# "kubectl"    "latest"
+# "terraform"  "latest"
+# "terragrunt" "latest"
+# "vault"      "latest"
+
+{{ $plugins := dict
+  "bat"        "latest"
+  "chezmoi"    "latest"
+  "direnv"     "latest"
+  "exa"        "latest"
+  "fd"         "latest"
+  "fzf"        "latest"
+  "hadolint"   "latest"
+  "ripgrep"    "latest"
+  "yq"         "latest"
+}}
+{{ range (keys $plugins) -}}
+  {{- $key := . }}
+  {{- $val := get $plugins $key }}
+
+  asdf plugin-add {{ $key }} || true
+
+{{-  if not (eq $val "None") }}
+  asdf install {{ $key }} {{ $val }} || true
+  asdf global {{ $key }} {{ $val }} || true
+{{-  end -}}
+{{ end -}}
+
+{{ end -}}
