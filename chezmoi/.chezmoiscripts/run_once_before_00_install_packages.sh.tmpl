@@ -2,7 +2,9 @@
 #!/usr/bin/env bash
 
 {{ if (eq .chezmoi.osRelease.id "fedora") -}}
-sudo dnf update && sudo dnf install -y zsh htop tldr
+sudo dnf update
+sudo dnf install -y zsh htop tldr util-linux-user
+sudo chsh -s $(which zsh) $(whoami)
 {{ end -}}
 
 {{ end -}}
