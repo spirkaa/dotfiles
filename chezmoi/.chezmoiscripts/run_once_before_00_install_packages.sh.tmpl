@@ -1,0 +1,8 @@
+{{- if (eq .chezmoi.os "linux") -}}
+#!/usr/bin/env bash
+
+{{ if (eq .chezmoi.osRelease.id "fedora") -}}
+sudo dnf update && sudo dnf install -y zsh htop tldr
+{{ end -}}
+
+{{ end -}}
