@@ -107,6 +107,6 @@ z4h source $HOME/.asdf/asdf.sh
 
 if [ -d "$HOME/.asdf/plugins/direnv" ]; then
   if [ -s "${XDG_CONFIG_HOME:-$HOME/.config}/asdf-direnv/zshrc" ]; then
-    source "${XDG_CONFIG_HOME:-$HOME/.config}/asdf-direnv/zshrc"
+    z4h source "${XDG_CONFIG_HOME:-$HOME/.config}/asdf-direnv/zshrc"
   fi
 fi

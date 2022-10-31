@@ -30,6 +30,6 @@ source $HOME/.asdf/asdf.sh
   asdf install {{ $key }} {{ $val }} || true
   asdf global {{ $key }} {{ $val }} || true
 {{-  end -}}
-{{ end -}}
-
+{{ end }}
+asdf direnv setup --shell zsh --version latest
 {{ end -}}
