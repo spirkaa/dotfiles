@@ -111,8 +111,6 @@ alias l="${aliases[ls]:-ls} -1A"
 setopt glob_dots     # no special treatment for file names with a leading dot
 setopt no_auto_menu  # require an extra TAB press to open the completion menu
 
-z4h source $HOME/.asdf/asdf.sh
-
 if [ -d "$HOME/.asdf/plugins/direnv" ]; then
   if [ -s "${XDG_CONFIG_HOME:-$HOME/.config}/asdf-direnv/zshrc" ]; then
     z4h source "${XDG_CONFIG_HOME:-$HOME/.config}/asdf-direnv/zshrc"
