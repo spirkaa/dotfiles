@@ -95,9 +95,17 @@ compdef _directories md
 
 # Define aliases.
 alias tree='tree -a -I .git'
+alias rm='rm -iv'
+alias mv='mv -iv'
+alias cp='cp -iv'
+alias mkdir='mkdir -pv'
+if (( $+commands[htop] )); then alias top='htop'; fi
 
 # Add flags to existing aliases.
-alias ls="${aliases[ls]:-ls} -A"
+alias ls="${aliases[ls]:-ls} --group-directories-first --color=auto"
+alias ll="${aliases[ls]:-ls} -lh"
+alias la="${aliases[ll]:-ls} -A"
+alias l="${aliases[ls]:-ls} -1A"
 
 # Set shell options: http://zsh.sourceforge.net/Doc/Release/Options.html.
 setopt glob_dots     # no special treatment for file names with a leading dot
