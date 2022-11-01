@@ -9,7 +9,7 @@ source $HOME/.asdf/asdf.sh
 # "terragrunt" "latest"
 # "vault"      "latest"
 
-{{ $plugins := dict
+{{- $plugins := dict
   "bat"        "latest"
   "chezmoi"    "latest"
   "direnv"     "latest"
@@ -19,17 +19,19 @@ source $HOME/.asdf/asdf.sh
   "hadolint"   "latest"
   "ripgrep"    "latest"
   "yq"         "latest"
-}}
-{{ range (keys $plugins) -}}
-  {{- $key := . }}
-  {{- $val := get $plugins $key }}
+-}}
 
-  asdf plugin-add {{ $key }} || true
+{{ range (keys $plugins) -}}
+{{-  $key := . }}
+{{-  $val := get $plugins $key }}
+
+asdf plugin-add {{ $key }} || true
 
 {{-  if not (eq $val "None") }}
-  asdf install {{ $key }} {{ $val }} || true
-  asdf global {{ $key }} {{ $val }} || true
+asdf install {{ $key }} {{ $val }} || true
+asdf global {{ $key }} {{ $val }} || true
 {{-  end -}}
 {{ end }}
+
 asdf direnv setup --shell zsh --version latest
 {{ end -}}
