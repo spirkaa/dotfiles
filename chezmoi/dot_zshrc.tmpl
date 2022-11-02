@@ -107,7 +107,17 @@ alias rm='rm -iv'
 alias mv='mv -iv'
 alias cp='cp -iv'
 alias mkdir='mkdir -pv'
+
+alias find='noglob find'
+alias fc='noglob fc'
+alias history='noglob history'
+alias locate='noglob locate'
+alias pip='noglob pip'
+alias fd='noglob fd'
+alias rg='noglob rg'
+
 if (( $+commands[htop] )); then alias top='htop'; fi
+alias exa='exa -laFh --git'
 alias k='kubectl'
 alias tf='terraform'
 alias tg='terragrunt'
