@@ -1,0 +1,12 @@
+[user]
+  name = {{ .name | quote }}
+  email = {{ .email | quote }}
+{{- if .signingkey }}
+  signingkey = {{ .signingkey }}
+{{- end }}
+[core]
+  excludesfile = ~/.gitignore_global
+[init]
+  defaultBranch = main
+[credential]
+  helper = store

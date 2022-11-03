@@ -48,7 +48,7 @@ zstyle ':z4h:ssh:*' send-extra-files '~/.nanorc' '~/.env.zsh'
 # up-to-date. Cloned files can be used after `z4h init`. This is just an
 # example. If you don't plan to use Oh My Zsh, delete this line.
 z4h install ohmyzsh/ohmyzsh || return
-{{- if eq .chezmoi.hostname "spwork" }}
+{{- if .work }}
 z4h install jkavan/terragrunt-oh-my-zsh-plugin || return
 {{- end }}
 
@@ -73,7 +73,7 @@ z4h source ~/.env.zsh
 # z4h source ohmyzsh/ohmyzsh/lib/diagnostics.zsh  # source an individual file
 # z4h load   ohmyzsh/ohmyzsh/plugins/emoji-clock  # load a plugin
 z4h load ohmyzsh/ohmyzsh/plugins/asdf
-{{- if eq .chezmoi.hostname "spwork" }}
+{{- if .work }}
 z4h load jkavan/terragrunt-oh-my-zsh-plugin
 {{- end }}
 
@@ -140,7 +140,7 @@ if [ -d "$HOME/.asdf/plugins/direnv" ]; then
   fi
 fi
 
-{{- if eq .chezmoi.hostname "spwork" }}
+{{- if .work }}
 if [ -f "$HOME/yandex-cloud/path.bash.inc" ]; then z4h source "$HOME/yandex-cloud/path.bash.inc"; fi
 if [ -f "$HOME/yandex-cloud/completion.zsh.inc" ]; then z4h source "$HOME/yandex-cloud/completion.zsh.inc"; fi
 {{- end }}

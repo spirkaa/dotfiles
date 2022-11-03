@@ -1,0 +1,34 @@
+{{- $name := "Ilya Pavlov" -}}
+{{- $email := "piv@devmem.ru" -}}
+{{- $signingkey := "4BBFC64626B6F41A" -}}
+{{- $work := false -}}
+{{- $headless := false -}}
+{{- $ephemeral := false -}}
+
+{{/* detect GitHub codespaces, VSCode remote containers, Docker containers, Multipass VMs, and Vagrant boxes */}}
+{{- $ephemeralEnvOrUsername := or (env "CODESPACES") (env "REMOTE_CONTAINERS_IPC") (eq .chezmoi.username "root" "ubuntu" "vagrant" "vscode" "devcontainer") -}}
+{{- $ephemeralCgroup := and (stat "/proc/1/cgroup") (output "cat" "/proc/1/cgroup" | regexMatch "(docker)") -}}
+{{- if or $ephemeralEnvOrUsername $ephemeralCgroup -}}
+{{-   $headless = true -}}
+{{-   $ephemeral = true -}}
+{{-   writeToStdout "Chezmoi is running in a container.\n" -}}
+{{- end -}}
+
+{{- if stdinIsATTY -}}
+{{-   if eq .chezmoi.hostname "spwork" -}}
+{{-     $work = true -}}
+{{-     $email = promptStringOnce . "email" "Your Email" $email -}}
+{{-     $signingkey = "" -}}
+{{-   end -}}
+{{- else -}}
+{{-   $headless = true -}}
+{{-   writeToStdout "Chezmoi is running in headless environment.\n" -}}
+{{- end -}}
+
+data:
+  name: {{ $name | quote }}
+  email: {{ $email | quote }}
+  signingkey: {{ $signingkey | quote }}
+  work: {{ $work }}
+  headless: {{ $headless }}
+  ephemeral: {{ $ephemeral }}
