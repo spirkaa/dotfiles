@@ -3,12 +3,6 @@
 
 source $HOME/.asdf/asdf.sh
 
-# "helm"       "latest"
-# "kubectl"    "latest"
-# "terraform"  "latest"
-# "terragrunt" "latest"
-# "vault"      "latest"
-
 {{- $plugins := dict
   "bat"        "latest"
   "cheat"      "latest"
@@ -20,6 +14,12 @@ source $HOME/.asdf/asdf.sh
   "hadolint"   "latest"
   "ripgrep"    "latest"
   "yq"         "latest"
+  "helm"       "latest"
+  "kubectl"    "latest"
+  "packer"     "latest"
+  "terraform"  "latest"
+  "terragrunt" "latest"
+  "vault"      "latest"
 -}}
 
 {{ range (keys $plugins) -}}
