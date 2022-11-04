@@ -1,0 +1,27 @@
+{{- if (eq .chezmoi.os "linux") -}}
+#!/usr/bin/env bash
+
+TMP_DIR="$(mktemp -d)"
+
+PKG_VERSION=cli-v2022.10.0
+PKG_NAME=bw-linux-${PKG_VERSION:5}.zip
+PKG_PATH=$TMP_DIR/$PKG_NAME
+PKG_URL=https://github.com/bitwarden/clients/releases/download/$PKG_VERSION/$PKG_NAME
+
+curl -fsSL -o "$PKG_PATH" "$PKG_URL"
+unzip -q "$PKG_PATH" -d "$TMP_DIR/"
+sudo install -o root -g root -m 0755 "${TMP_DIR}/bw" /usr/local/bin/bw
+rm -rf "$TMP_DIR"
+
+bw config server {{ .bitwarden_server }}
+if ! bw login --check >/dev/null 2>&1; then
+  echo "Log in to Vaultwarden:"
+  export BW_SESSION=$(bw login --raw)
+fi
+
+__GH_TOKEN_PATH=$HOME/.config/.github_api_token
+if [ ! -f $__GH_TOKEN_PATH ]; then
+  echo "export GITHUB_API_TOKEN=$(bw get notes ASDF_GITHUB_API_TOKEN)" > "$__GH_TOKEN_PATH"
+fi
+
+{{ end -}}
