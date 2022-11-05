@@ -35,6 +35,16 @@ find ~/.local/share/gnome-shell/extensions/ -type f \
   | xargs -i cp {} $schemas_path
 glib-compile-schemas $schemas_path
 
+# dash-to-dock
+gsettings set org.gnome.shell.extensions.dash-to-dock dock-fixed true
+gsettings set org.gnome.shell.extensions.dash-to-dock extend-height true
+gsettings set org.gnome.shell.extensions.dash-to-dock dock-position 'LEFT'
+gsettings set org.gnome.shell.extensions.dash-to-dock dash-max-icon-size 40
+gsettings set org.gnome.shell.extensions.dash-to-dock show-apps-at-top true
+gsettings set org.gnome.shell.extensions.dash-to-dock click-action 'minimize'
+gsettings set org.gnome.shell.extensions.dash-to-dock custom-theme-shrink true
+gsettings set org.gnome.shell.extensions.dash-to-dock disable-overview-on-startup true
+
 # favorite-apps
 {{- if .work }}
 gsettings set org.gnome.shell favorite-apps "[ \
