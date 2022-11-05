@@ -1,9 +1,10 @@
-{{- $fontDir := "" }}
-{{- if eq .chezmoi.os "darwin" }}
-{{-   $fontDir = "Library/Fonts" }}
-{{- else if eq .chezmoi.os "linux" }}
-{{-   $fontDir = ".local/share/fonts" }}
-{{- end }}
+{{- if and (not .ephemeral) (not .headless) }}
+{{-   $fontDir := "" }}
+{{-   if eq .chezmoi.os "darwin" }}
+{{-     $fontDir = "Library/Fonts" }}
+{{-   else if eq .chezmoi.os "linux" }}
+{{-     $fontDir = ".local/share/fonts" }}
+{{-   end }}
 ["{{ $fontDir }}/MesloLGS NF Regular.ttf"]
     type = "file"
     url = "https://github.com/romkatv/powerlevel10k-media/raw/master/MesloLGS NF Regular.ttf"
@@ -20,3 +21,11 @@
     type = "file"
     url = "https://github.com/romkatv/powerlevel10k-media/raw/master/MesloLGS NF Bold Italic.ttf"
     refreshPeriod = "168h"
+{{-   if (eq .chezmoi.osRelease.id "fedora") }}
+[".local/bin/gnome-shell-extension-installer"]
+    type = "file"
+    url = "https://github.com/brunelli/gnome-shell-extension-installer/raw/master/gnome-shell-extension-installer"
+    refreshPeriod = "168h"
+    executable = true
+{{-   end }}
+{{- end }}
