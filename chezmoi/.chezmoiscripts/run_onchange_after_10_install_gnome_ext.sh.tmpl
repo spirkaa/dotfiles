@@ -1,0 +1,38 @@
+{{- if (eq .chezmoi.os "linux") -}}
+#!/usr/bin/env bash
+
+gnome-shell-extension-installer --yes --restart-shell \
+  6 \
+  615 \
+  779 \
+  906 \
+  1653 \
+  1460 \
+  1720 \
+  28 \
+  3733 \
+  307 \
+  3843
+
+gsettings set org.gnome.shell enabled-extensions "[ \
+  'appindicatorsupport@rgcjonas.gmail.com', \
+  'apps-menu@gnome-shell-extensions.gcampax.github.com', \
+  'clipboard-indicator@tudmotu.com', \
+  'dash-to-dock@micxgx.gmail.com', \
+  'gTile@vibou', \
+  'just-perfection-desktop@just-perfection', \
+  'sound-output-device-chooser@kgshank.net', \
+  'tiling-assistant@leleat-on-github', \
+  'tweaks-system-menu@extensions.gnome-shell.fifi.org', \
+  'Vitals@CoreCoding.com', \
+  'weeks-start-on-monday@extensions.gnome-shell.fifi.org' \
+]"
+
+schemas_path=$HOME/.local/share/glib-2.0/schemas/
+mkdir -p $schemas_path
+find ~/.local/share/gnome-shell/extensions/ -type f \
+  | grep -i gschema.xml \
+  | xargs -i cp {} $schemas_path
+glib-compile-schemas $schemas_path
+
+{{ end -}}
