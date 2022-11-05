@@ -53,8 +53,18 @@ gsettings set org.gnome.shell favorite-apps "[ \
 ]"
 {{- end }}
 
+# interface
+gsettings set org.gnome.system.locale region 'ru_RU.UTF-8'
+gsettings set org.gnome.desktop.interface clock-show-weekday true
+gsettings set org.gnome.desktop.interface color-scheme 'prefer-dark'
+gsettings set org.gnome.desktop.interface gtk-theme 'Adwaita-dark'
+gsettings set org.gnome.desktop.wm.preferences button-layout 'appmenu:minimize,maximize,close'
+{{- if .work }}
+gsettings set org.gnome.desktop.peripherals.touchpad tap-to-click true
+{{- end }}
+
 # Terminal
-fc-cache
+fc-cache -f -v "$HOME/.local/share/fonts"
 profile=$(gsettings get org.gnome.Terminal.ProfilesList default | tr -d "'")
 gsettings set org.gnome.Terminal.Legacy.Profile:/org/gnome/terminal/legacy/profiles:/:${profile}/ font "MesloLGS NF 11"
 gsettings set org.gnome.Terminal.Legacy.Profile:/org/gnome/terminal/legacy/profiles:/:${profile}/ use-system-font false
