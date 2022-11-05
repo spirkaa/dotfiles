@@ -3,7 +3,15 @@
 
 {{ if (eq .chezmoi.osRelease.id "fedora") -}}
 sudo dnf update -y
-sudo dnf install -y zsh mc htop tldr jc util-linux-user
+sudo dnf install -y zsh \
+  mc \
+  htop \
+  tldr \
+  jc \
+  util-linux-user \
+  dnf-plugins-core \
+  gnome-extensions-app \
+  gnome-tweaks
 sudo chsh -s $(which zsh) $(whoami)
 {{ end -}}
 

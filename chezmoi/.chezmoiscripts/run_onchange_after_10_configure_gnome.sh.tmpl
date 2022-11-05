@@ -1,0 +1,37 @@
+{{- if (eq .chezmoi.os "linux") -}}
+#!/usr/bin/env bash
+
+fc-cache
+
+profile=$(gsettings get org.gnome.Terminal.ProfilesList default | tr -d "'")
+gsettings set org.gnome.Terminal.Legacy.Profile:/org/gnome/terminal/legacy/profiles:/:${profile}/ font "MesloLGS NF 11"
+gsettings set org.gnome.Terminal.Legacy.Profile:/org/gnome/terminal/legacy/profiles:/:${profile}/ use-system-font false
+gsettings set org.gnome.Terminal.Legacy.Profile:/org/gnome/terminal/legacy/profiles:/:${profile}/ default-size-columns 125
+gsettings set org.gnome.Terminal.Legacy.Profile:/org/gnome/terminal/legacy/profiles:/:${profile}/ default-size-rows 30
+gsettings set org.gnome.Terminal.Legacy.Profile:/org/gnome/terminal/legacy/profiles:/:${profile}/ scrollback-lines 100000
+
+{{- if .work }}
+gsettings set org.gnome.shell favorite-apps "[ \
+  'org.gnome.Nautilus.desktop', \
+  'org.gnome.Terminal.desktop', \
+  'firefox.desktop', \
+  'org.gnome.Evolution.desktop', \
+  'org.telegram.desktop.desktop', \
+  'com.mattermost.Desktop.desktop', \
+  'PBE.QOwnNotes.desktop', \
+  'code.desktop', \
+  'lens.desktop' \
+]"
+{{- else }}
+gsettings set org.gnome.shell favorite-apps "[ \
+  'org.gnome.Nautilus.desktop', \
+  'org.gnome.Terminal.desktop', \
+  'google-chrome.desktop', \
+  'mozilla-thunderbird.desktop', \
+  'org.telegram.desktop.desktop', \
+  'PBE.QOwnNotes.desktop', \
+  'code.desktop' \
+]"
+{{- end }}
+
+{{ end -}}
