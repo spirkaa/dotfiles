@@ -1,0 +1,11 @@
+{{- if (eq .chezmoi.os "linux") -}}
+#!/usr/bin/env bash
+
+{{   if (eq .chezmoi.osRelease.id "fedora") -}}
+sudo rpm --import http://download.opensuse.org/repositories/home:/pbek:/QOwnNotes/Fedora_36/repodata/repomd.xml.key
+sudo sh -c 'echo -e "[qownnotes]\nname=QOwnNotes\nbaseurl=http://download.opensuse.org/repositories/home:/pbek:/QOwnNotes/Fedora_\$releasever/\nenabled=1\ngpgcheck=1\ngpgkey=http://download.opensuse.org/repositories/home:/pbek:/QOwnNotes/Fedora_\$releasever/repodata/repomd.xml.key" > /etc/yum.repos.d/qownnotes.repo'
+dnf check-update
+sudo dnf install -y qownnotes
+{{   end -}}
+
+{{ end -}}
