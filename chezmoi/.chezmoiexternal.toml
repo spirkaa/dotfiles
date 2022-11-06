@@ -21,6 +21,38 @@
     type = "file"
     url = "https://github.com/romkatv/powerlevel10k-media/raw/master/MesloLGS NF Bold Italic.ttf"
     refreshPeriod = "168h"
+["{{ $fontDir }}/Caskaydia Cove Nerd Font Complete Regular.otf"]
+    type = "file"
+    url = "https://github.com/ryanoasis/nerd-fonts/raw/master/patched-fonts/CascadiaCode/Regular/complete/Caskaydia Cove Nerd Font Complete Regular.otf"
+    refreshPeriod = "168h"
+["{{ $fontDir }}/Caskaydia Cove Nerd Font Complete Italic.otf"]
+    type = "file"
+    url = "https://github.com/ryanoasis/nerd-fonts/raw/master/patched-fonts/CascadiaCode/Regular/complete/Caskaydia Cove Nerd Font Complete Italic.otf"
+    refreshPeriod = "168h"
+["{{ $fontDir }}/Caskaydia Cove Nerd Font Complete Mono Regular.otf"]
+    type = "file"
+    url = "https://github.com/ryanoasis/nerd-fonts/raw/master/patched-fonts/CascadiaCode/Regular/complete/Caskaydia Cove Nerd Font Complete Mono Regular.otf"
+    refreshPeriod = "168h"
+["{{ $fontDir }}/Caskaydia Cove Nerd Font Complete Mono Italic.otf"]
+    type = "file"
+    url = "https://github.com/ryanoasis/nerd-fonts/raw/master/patched-fonts/CascadiaCode/Regular/complete/Caskaydia Cove Nerd Font Complete Mono Italic.otf"
+    refreshPeriod = "168h"
+["{{ $fontDir }}/Caskaydia Cove Nerd Font Complete Bold.otf"]
+    type = "file"
+    url = "https://github.com/ryanoasis/nerd-fonts/raw/master/patched-fonts/CascadiaCode/Bold/complete/Caskaydia Cove Nerd Font Complete Bold.otf"
+    refreshPeriod = "168h"
+["{{ $fontDir }}/Caskaydia Cove Nerd Font Complete Bold Italic.otf"]
+    type = "file"
+    url = "https://github.com/ryanoasis/nerd-fonts/raw/master/patched-fonts/CascadiaCode/Bold/complete/Caskaydia Cove Nerd Font Complete Bold Italic.otf"
+    refreshPeriod = "168h"
+["{{ $fontDir }}/Caskaydia Cove Nerd Font Complete Mono Bold.otf"]
+    type = "file"
+    url = "https://github.com/ryanoasis/nerd-fonts/raw/master/patched-fonts/CascadiaCode/Bold/complete/Caskaydia Cove Nerd Font Complete Mono Bold.otf"
+    refreshPeriod = "168h"
+["{{ $fontDir }}/Caskaydia Cove Nerd Font Complete Mono Bold Italic.otf"]
+    type = "file"
+    url = "https://github.com/ryanoasis/nerd-fonts/raw/master/patched-fonts/CascadiaCode/Bold/complete/Caskaydia Cove Nerd Font Complete Mono Bold Italic.otf"
+    refreshPeriod = "168h"
 {{-   if (eq .chezmoi.osRelease.id "fedora") }}
 [".local/bin/gnome-shell-extension-installer"]
     type = "file"
