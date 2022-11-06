@@ -1,6 +1,7 @@
 {{- $name := "Ilya Pavlov" -}}
 {{- $email := "piv@devmem.ru" -}}
 {{- $signingkey := "4BBFC64626B6F41A" -}}
+{{- $hostname := "sphome-fc" -}}
 {{- $work := false -}}
 {{- $headless := false -}}
 {{- $ephemeral := false -}}
@@ -15,10 +16,11 @@
 {{- end -}}
 
 {{- if stdinIsATTY -}}
-{{-   if eq .chezmoi.hostname "spwork" -}}
-{{-     $work = true -}}
-{{-     $email = promptStringOnce . "email" "Your Email" $email -}}
+{{-   $work = promptBoolOnce . "work" "Work machine" $work -}}
+{{-   if $work -}}
+{{-     $email = promptStringOnce . "email" "Work email" $email -}}
 {{-     $signingkey = "" -}}
+{{-     $hostname = "spwork" -}}
 {{-   end -}}
 {{- else -}}
 {{-   $headless = true -}}
@@ -26,9 +28,10 @@
 {{- end -}}
 
 data:
-  name: {{ $name | quote }}
-  email: {{ $email | quote }}
-  signingkey: {{ $signingkey | quote }}
+  name: {{ $name }}
+  email: {{ $email }}
+  signingkey: {{ $signingkey }}
+  hostname: {{ $hostname }}
   work: {{ $work }}
   headless: {{ $headless }}
   ephemeral: {{ $ephemeral }}
