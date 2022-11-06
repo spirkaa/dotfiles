@@ -1,7 +1,7 @@
 {{- if (eq .chezmoi.os "linux") -}}
 #!/usr/bin/env bash
 
-{{-   if .work }}
+{{   if .work -}}
 TMP_DIR="$(mktemp -d)"
 
 PKG_NAME=anyconnect-linux64-4.10.04065-predeploy-k9.tar.gz

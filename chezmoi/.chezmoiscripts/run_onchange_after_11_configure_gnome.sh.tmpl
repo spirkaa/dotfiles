@@ -29,7 +29,7 @@ gsettings set org.gnome.shell.extensions.just-perfection weather false
 gsettings set org.gnome.shell.extensions.just-perfection world-clock false
 
 # favorite-apps
-{{- if .work }}
+{{   if .work -}}
 gsettings set org.gnome.shell favorite-apps "[ \
   'org.gnome.Nautilus.desktop', \
   'org.gnome.Terminal.desktop', \
@@ -41,7 +41,7 @@ gsettings set org.gnome.shell favorite-apps "[ \
   'code.desktop', \
   'open-lens.desktop' \
 ]"
-{{- else }}
+{{   else -}}
 gsettings set org.gnome.shell favorite-apps "[ \
   'org.gnome.Nautilus.desktop', \
   'org.gnome.Terminal.desktop', \
@@ -52,7 +52,7 @@ gsettings set org.gnome.shell favorite-apps "[ \
   'code.desktop', \
   'deluge.desktop' \
 ]"
-{{- end }}
+{{   end -}}
 
 # interface
 gsettings set org.gnome.system.locale region 'ru_RU.UTF-8'
@@ -61,9 +61,9 @@ gsettings set org.gnome.desktop.interface color-scheme 'prefer-dark'
 gsettings set org.gnome.desktop.interface gtk-theme 'Adwaita-dark'
 gsettings set org.gnome.desktop.wm.preferences button-layout 'appmenu:minimize,maximize,close'
 gsettings set org.gnome.desktop.session idle-delay 900
-{{- if .work }}
+{{   if .work -}}
 gsettings set org.gnome.desktop.peripherals.touchpad tap-to-click true
-{{- end }}
+{{   end -}}
 
 # keybindings
 gsettings set org.gnome.desktop.wm.keybindings switch-applications "[]"

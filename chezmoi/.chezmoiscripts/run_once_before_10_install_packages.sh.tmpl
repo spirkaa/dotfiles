@@ -27,6 +27,7 @@ sudo dnf install -y \
   nextcloud-client
 sudo flatpak install -y \
   org.telegram.desktop
+
 {{       if .work -}}
 sudo dnf install -y \
   evolution-ews
@@ -45,9 +46,7 @@ sudo dnf install -y \
   libva-utils \
   vulkan
 {{       end -}}
-
 {{     end -}}
-
 {{   end -}}
 
 {{ end -}}

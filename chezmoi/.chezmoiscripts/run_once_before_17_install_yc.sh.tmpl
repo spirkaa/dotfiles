@@ -1,8 +1,8 @@
 {{- if (eq .chezmoi.os "linux") -}}
 #!/usr/bin/env bash
 
-{{- if .work }}
+{{   if .work -}}
 curl -fsSL storage.yandexcloud.net/yandexcloud-yc/install.sh | bash -s -- -n
-{{- end }}
+{{   end -}}
 
 {{ end -}}
