@@ -1,0 +1,11 @@
+{{- if (eq .chezmoi.os "linux") -}}
+#!/usr/bin/env bash
+
+{{   if (eq .chezmoi.osRelease.id "fedora") -}}
+PKG_VERSION=v6.1.15
+PKG_URL=https://github.com/MuhammedKalkan/OpenLens/releases/download/$PKG_VERSION/OpenLens-${PKG_VERSION:1}.rpm
+
+sudo dnf install -y $PKG_URL
+{{   end -}}
+
+{{ end -}}
