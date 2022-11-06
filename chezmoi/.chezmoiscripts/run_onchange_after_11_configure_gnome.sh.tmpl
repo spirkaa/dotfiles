@@ -49,7 +49,8 @@ gsettings set org.gnome.shell favorite-apps "[ \
   'mozilla-thunderbird.desktop', \
   'org.telegram.desktop.desktop', \
   'PBE.QOwnNotes.desktop', \
-  'code.desktop' \
+  'code.desktop', \
+  'deluge.desktop' \
 ]"
 {{- end }}
 
@@ -71,8 +72,8 @@ gsettings set org.gnome.desktop.wm.keybindings switch-windows-backward "['<Shift
 gsettings set org.gnome.shell.keybindings screenshot "['Print']"
 gsettings set org.gnome.shell.keybindings show-screenshot-ui "['<Shift><Super>s']"
 
-# Terminal
-fc-cache -f -v "$HOME/.local/share/fonts"
+# terminal
+fc-cache -f "$HOME/.local/share/fonts"
 profile=$(gsettings get org.gnome.Terminal.ProfilesList default | tr -d "'")
 gsettings set org.gnome.Terminal.Legacy.Profile:/org/gnome/terminal/legacy/profiles:/:${profile}/ font "MesloLGS NF 11"
 gsettings set org.gnome.Terminal.Legacy.Profile:/org/gnome/terminal/legacy/profiles:/:${profile}/ use-system-font false
