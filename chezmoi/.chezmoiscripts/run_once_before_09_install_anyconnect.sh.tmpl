@@ -1,0 +1,19 @@
+{{- if (eq .chezmoi.os "linux") -}}
+#!/usr/bin/env bash
+
+{{-   if .work }}
+TMP_DIR="$(mktemp -d)"
+
+PKG_NAME=anyconnect-linux64-4.10.04065-predeploy-k9.tar.gz
+PKG_PATH=$TMP_DIR/$PKG_NAME
+PKG_URL=https://uci.service-now.com/sys_attachment.do?sys_id=1507c0cc1b200dd44d61baeedc4bcbe9
+
+curl -fsSL -o "$PKG_PATH" "$PKG_URL"
+tar -xf "$PKG_PATH" -C "$TMP_DIR" --strip-components=1
+
+pushd $TMP_DIR/vpn && yes | sudo ./vpn_install.sh; popd
+
+rm -rf "$TMP_DIR"
+{{   end -}}
+
+{{ end -}}
