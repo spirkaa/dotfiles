@@ -6,13 +6,48 @@ sudo dnf install -y \
   zsh \
   mc \
   htop \
+  iftop \
+  iotop \
+  ncdu \
   tldr \
   jc \
   util-linux-user \
+  smartmontools \
+  golang
+sudo chsh -s $(which zsh) $(whoami)
+
+{{     if and (not .headless) (not .ephemeral) -}}
+sudo dnf install -y \
+  @virtualization \
   dconf-editor \
   gnome-extensions-app \
-  gnome-tweaks
-sudo chsh -s $(which zsh) $(whoami)
+  gnome-tweaks \
+  google-chrome-stable \
+  filezilla \
+  nextcloud-client
+sudo flatpak install -y \
+  org.telegram.desktop
+{{       if .work -}}
+sudo dnf install -y \
+  evolution-ews
+sudo flatpak install -y \
+  Mattermost \
+  zoom
+{{       else -}}
+sudo dnf install -y \
+  thunderbird \
+  deluge \
+  akmod-nvidia \
+  xorg-x11-drv-nvidia-cuda \
+  xorg-x11-drv-nvidia-cuda-libs \
+  vdpauinfo \
+  libva-vdpau-driver \
+  libva-utils \
+  vulkan
+{{       end -}}
+
+{{     end -}}
+
 {{   end -}}
 
 {{ end -}}
