@@ -1,0 +1,19 @@
+{{- if (eq .chezmoi.os "linux") -}}
+#!/usr/bin/env bash
+
+{{ if (eq .chezmoi.osRelease.id "fedora") -}}
+sudo dnf install -y logiops
+
+sudo tee /etc/logid.cfg &>/dev/null <<EOF
+devices: ({
+  name: "Wireless Mouse MX Master 3";
+  buttons: (
+    { cid: 0xc3; action = { type: "Keypress"; keys: ["KEY_LEFTMETA", "KEY_ENTER"]; }; },
+  );
+});
+EOF
+
+sudo systemctl --now enable logid
+{{ end -}}
+
+{{ end -}}
