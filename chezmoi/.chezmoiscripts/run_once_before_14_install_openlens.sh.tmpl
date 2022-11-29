@@ -2,8 +2,8 @@
 #!/usr/bin/env bash
 
 {{   if (eq .chezmoi.osRelease.id "fedora") -}}
-PKG_VERSION=v6.2.0
-PKG_URL=https://github.com/MuhammedKalkan/OpenLens/releases/download/$PKG_VERSION/OpenLens-${PKG_VERSION:1}.rpm
+PKG_VERSION=v6.2.3
+PKG_URL=https://github.com/MuhammedKalkan/OpenLens/releases/download/$PKG_VERSION/OpenLens-${PKG_VERSION:1}.x86_64.rpm
 
 sudo dnf install -y $PKG_URL
 {{   end -}}
