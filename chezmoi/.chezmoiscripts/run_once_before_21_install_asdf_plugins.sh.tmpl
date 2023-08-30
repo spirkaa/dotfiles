@@ -5,17 +5,17 @@ source $HOME/.asdf/asdf.sh
 source $HOME/.config/.github_api_token
 
 {{- $plugins := dict
-  "bat"                "latest"
-  "cheat"              "latest"
   "chezmoi"            "latest"
   "direnv"             "latest"
+  "ripgrep"            "latest"
+  "fzf"                "latest"
+  "bat"                "latest"
+  "cheat"              "latest"
   "exa"                "latest"
   "fd"                 "latest"
-  "fzf"                "latest"
-  "hadolint"           "latest"
-  "ripgrep"            "latest"
   "shellcheck"         "latest"
   "shfmt"              "latest"
+  "hadolint"           "latest"
   "yq"                 "latest"
   "helm"               "latest"
   "kubectl"            "latest"
@@ -24,7 +24,7 @@ source $HOME/.config/.github_api_token
   "terraform"          "latest"
   "terragrunt"         "latest"
   "vault"              "latest"
-  "teleport-community" "13.2.3"
+  "teleport-community" "13.3.7"
 -}}
 
 {{ range (keys $plugins) -}}
