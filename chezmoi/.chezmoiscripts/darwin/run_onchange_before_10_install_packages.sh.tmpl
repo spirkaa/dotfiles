@@ -1,0 +1,83 @@
+#!/usr/bin/env bash
+
+set -euo pipefail
+
+{{ template "darwin/utils.sh" . }}
+{{ template "darwin/load-brew.sh" . }}
+
+filename "homebrew"
+
+action "Installing packages using homebrew... "
+
+{{ $brews := list
+  "chezmoi"
+  "asdf"
+  "ripgrep"
+  "fzf"
+  "bat"
+  "cheat"
+  "exa"
+  "fd"
+  "shellcheck"
+  "shfmt"
+  "hadolint"
+  "yq"
+  "jq"
+  "git"
+  "gnupg"
+  "pinentry-mac"
+  "mc"
+  "htop"
+  "nano"
+  "tmux"
+  "curl"
+  "wget"
+  "xz"
+  "zstd"
+  "coreutils"
+  "cmake"
+  "mas"
+  "bitwarden-cli"
+  "docker"
+  "docker-compose"
+  "docker-credential-helper"
+  "docker-buildx"
+  "colima"
+  "helm"
+  "kubernetes-cli"
+  "kubectx"
+  "teleport"
+-}}
+
+{{ $casks := list
+  "libreoffice"
+  "google-chrome"
+  "firefox"
+  "iterm2"
+  "iina"
+  "visual-studio-code"
+  "vlc"
+  "nextcloud"
+  "obsidian"
+  "telegram"
+  "mattermost"
+  "dbeaver-community"
+  "openlens"
+  "raycast"
+  "keepingyouawake"
+  "betterzip"
+  "qlvideo"
+  "syntax-highlight"
+  "qlmarkdown"
+  "suspicious-package"
+  "apparency"
+-}}
+
+brew bundle --no-lock --file=/dev/stdin <<EOF
+{{ range ($brews | sortAlpha | uniq) -}}
+brew "{{ . }}"
+{{ end -}}
+{{ range ($casks | sortAlpha | uniq) -}}
+cask "{{ . }}"
+{{ end -}}
+EOF

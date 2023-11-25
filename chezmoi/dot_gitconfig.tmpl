@@ -8,5 +8,15 @@
   excludesfile = ~/.gitignore_global
 [init]
   defaultBranch = main
+{{- if ne .chezmoi.os "darwin" }}
 [credential]
   helper = store
+{{- end }}
+{{- if eq .chezmoi.os "darwin" }}
+[commit]
+  gpgsign = true
+[gpg]
+  program = /opt/homebrew/bin/gpg
+[includeIf "gitdir:~/work/"]
+  path = ~/work/.gitconfig
+{{- end }}

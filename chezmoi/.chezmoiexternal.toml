@@ -53,11 +53,13 @@
     type = "file"
     url = "https://github.com/ryanoasis/nerd-fonts/raw/master/patched-fonts/CascadiaCode/Bold/CaskaydiaCoveNerdFontMono-BoldItalic.ttf"
     refreshPeriod = "168h"
-{{-   if (eq .chezmoi.osRelease.id "fedora") }}
+{{-   if (eq .chezmoi.os "linux") }}
+{{-     if (eq .chezmoi.osRelease.id "fedora") }}
 [".local/bin/gnome-shell-extension-installer"]
     type = "file"
     url = "https://github.com/brunelli/gnome-shell-extension-installer/raw/master/gnome-shell-extension-installer"
     refreshPeriod = "168h"
     executable = true
+{{-     end }}
 {{-   end }}
 {{- end }}

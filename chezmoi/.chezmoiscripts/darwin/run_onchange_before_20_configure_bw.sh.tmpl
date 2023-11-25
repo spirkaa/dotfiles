@@ -1,0 +1,15 @@
+#!/usr/bin/env bash
+
+set -euo pipefail
+
+bw config server {{ .bitwarden_server }}
+if ! bw login --check >/dev/null 2>&1; then
+  echo "Log in to Vaultwarden:"
+  BW_SESSION=$(bw login --raw)
+  export BW_SESSION
+fi
+
+__GH_TOKEN_PATH=$HOME/.config/.github_api_token
+if [ ! -f $__GH_TOKEN_PATH ]; then
+  echo "export GITHUB_API_TOKEN=$(bw get notes ASDF_GITHUB_API_TOKEN)" >"$__GH_TOKEN_PATH"
+fi

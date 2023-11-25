@@ -1,0 +1,26 @@
+#!/usr/bin/env bash
+
+set -euo pipefail
+
+source $HOME/.config/.github_api_token
+
+{{- $plugins := dict
+  "python"             "latest"
+  "direnv"             "latest"
+  "packer"             "latest"
+  "terraform"          "latest"
+  "terragrunt"         "latest"
+  "vault"              "latest"
+-}}
+
+{{ range (keys $plugins) -}}
+{{-  $key := . }}
+{{-  $val := get $plugins $key }}
+
+asdf plugin list | grep -q "^{{ $key }}$" || asdf plugin add {{ $key }}
+
+{{-  if not (eq $val "None") }}
+asdf install {{ $key }} {{ $val }} || true
+asdf global {{ $key }} {{ $val }} || true
+{{-  end -}}
+{{ end }}

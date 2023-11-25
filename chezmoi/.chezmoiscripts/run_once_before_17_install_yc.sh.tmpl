@@ -1,11 +1,8 @@
-{{- if (eq .chezmoi.os "linux") -}}
+{{- if or .work (eq .chezmoi.os "darwin") -}}
 #!/usr/bin/env bash
 
-{{   if .work -}}
 # https://storage.yandexcloud.net/yandexcloud-yc/release/stable
 # 0.113.0
 
 curl -fsSL storage.yandexcloud.net/yandexcloud-yc/install.sh | bash -s -- -n
-{{   end -}}
-
-{{ end -}}
+{{- end }}

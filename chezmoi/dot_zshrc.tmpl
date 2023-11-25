@@ -11,7 +11,11 @@ zstyle ':z4h:' auto-update      'no'
 zstyle ':z4h:' auto-update-days '28'
 
 # Keyboard type: 'mac' or 'pc'.
+{{- if eq .chezmoi.os "darwin" }}
+zstyle ':z4h:bindkey' keyboard  'mac'
+{{- else }}
 zstyle ':z4h:bindkey' keyboard  'pc'
+{{- end }}
 
 # Don't start tmux.
 zstyle ':z4h:' start-tmux       no
@@ -75,16 +79,26 @@ z4h load ohmyzsh/ohmyzsh/plugins/asdf
 z4h load jkavan/terragrunt-oh-my-zsh-plugin
 
 # Define key bindings.
+{{- if ne .chezmoi.os "darwin" }}
 z4h bindkey z4h-backward-kill-word  Ctrl+Backspace     Ctrl+H
 z4h bindkey z4h-backward-kill-zword Ctrl+Alt+Backspace
-
+{{- end }}
 z4h bindkey undo Ctrl+/ Shift+Tab  # undo the last command line change
+{{- if eq .chezmoi.os "darwin" }}
+z4h bindkey redo Option+/             # redo the last undone command line change
+
+z4h bindkey z4h-cd-back    Shift+Left   # cd into the previous directory
+z4h bindkey z4h-cd-forward Shift+Right  # cd into the next directory
+z4h bindkey z4h-cd-up      Shift+Up     # cd into the parent directory
+z4h bindkey z4h-cd-down    Shift+Down   # cd into a child directory
+{{- else }}
 z4h bindkey redo Alt+/             # redo the last undone command line change
 
 z4h bindkey z4h-cd-back    Alt+Left   # cd into the previous directory
 z4h bindkey z4h-cd-forward Alt+Right  # cd into the next directory
 z4h bindkey z4h-cd-up      Alt+Up     # cd into the parent directory
 z4h bindkey z4h-cd-down    Alt+Down   # cd into a child directory
+{{- end }}
 
 # Autoload functions.
 autoload -Uz zmv
@@ -123,7 +137,11 @@ alias tf='terraform'
 alias tg='terragrunt'
 
 # Add flags to existing aliases.
+{{- if eq .chezmoi.os "darwin" }}
+alias ls="gls -G --group-directories-first --color=auto"
+{{- else }}
 alias ls="${aliases[ls]:-ls} --group-directories-first --color=auto"
+{{- end }}
 alias ll="${aliases[ls]:-ls} -lh"
 alias la="${aliases[ll]:-ls} -A"
 alias l="${aliases[ls]:-ls} -1A"
@@ -140,7 +158,7 @@ if [ -d "$HOME/.asdf/plugins/direnv" ]; then
   fi
 fi
 
-{{- if .work }}
+{{- if or .work (eq .chezmoi.os "darwin") }}
 if [ -f "$HOME/yandex-cloud/path.bash.inc" ]; then z4h source "$HOME/yandex-cloud/path.bash.inc"; fi
 if [ -f "$HOME/yandex-cloud/completion.zsh.inc" ]; then z4h source "$HOME/yandex-cloud/completion.zsh.inc"; fi
 {{- end }}
