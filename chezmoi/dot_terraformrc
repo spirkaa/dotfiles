@@ -1,0 +1,11 @@
+provider_installation {
+  network_mirror {
+    url     = "https://terraform-mirror.yandexcloud.net/"
+    include = ["registry.terraform.io/*/*"]
+  }
+  direct {
+    exclude = ["registry.terraform.io/*/*"]
+  }
+}
+disable_checkpoint = true
+plugin_cache_dir   = "$HOME/.terraform.d/plugin-cache"
