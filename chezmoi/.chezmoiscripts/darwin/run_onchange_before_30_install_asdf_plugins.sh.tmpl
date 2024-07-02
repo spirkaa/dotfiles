@@ -5,7 +5,6 @@ set -euo pipefail
 source $HOME/.config/.github_api_token
 
 {{- $plugins := dict
-  "python"             "latest"
   "direnv"             "latest"
   "packer"             "latest"
   "terraform"          "latest"
@@ -13,6 +12,7 @@ source $HOME/.config/.github_api_token
   "vault"              "latest"
   "helm-docs"          "latest"
   "kubeconform"        "latest"
+  "teleport-community" "16.0.3"
 -}}
 
 {{ range (keys $plugins) -}}
