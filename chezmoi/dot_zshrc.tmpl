@@ -166,3 +166,8 @@ if [ -f "$HOME/yandex-cloud/completion.zsh.inc" ]; then z4h source "$HOME/yandex
 {{- if eq .chezmoi.os "darwin" }}
 export PATH="$(brew --prefix)/opt/python/libexec/bin:$PATH"
 {{- end }}
+
+if command -v atuin >/dev/null 2>&1; then
+  eval "$(atuin init zsh)"
+  atuin gen-completions --shell zsh
+fi
