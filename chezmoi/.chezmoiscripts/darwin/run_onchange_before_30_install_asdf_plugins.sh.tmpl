@@ -12,7 +12,7 @@ source $HOME/.config/.github_api_token
   "vault"              "latest"
   "helm-docs"          "latest"
   "kubeconform"        "latest"
-  "teleport-community" "16.0.3"
+  "teleport-community" "16.5.0"
 -}}
 
 {{ range (keys $plugins) -}}
@@ -23,6 +23,6 @@ asdf plugin list | grep -q "^{{ $key }}$" || asdf plugin add {{ $key }}
 
 {{-  if not (eq $val "None") }}
 asdf install {{ $key }} {{ $val }} || true
-asdf global {{ $key }} {{ $val }} || true
+asdf set -u {{ $key }} {{ $val }} || true
 {{-  end -}}
 {{ end }}
