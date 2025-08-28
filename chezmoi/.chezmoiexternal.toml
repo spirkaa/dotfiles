@@ -23,35 +23,35 @@
     refreshPeriod = "168h"
 ["{{ $fontDir }}/CaskaydiaCoveNerdFont-Regular.ttf"]
     type = "file"
-    url = "https://github.com/ryanoasis/nerd-fonts/raw/master/patched-fonts/CascadiaCode/Regular/CaskaydiaCoveNerdFont-Regular.ttf"
+    url = "https://github.com/ryanoasis/nerd-fonts/raw/master/patched-fonts/CascadiaCode/CaskaydiaCoveNerdFont-Regular.ttf"
     refreshPeriod = "168h"
 ["{{ $fontDir }}/CaskaydiaCoveNerdFont-Italic.ttf"]
     type = "file"
-    url = "https://github.com/ryanoasis/nerd-fonts/raw/master/patched-fonts/CascadiaCode/Regular/CaskaydiaCoveNerdFont-Italic.ttf"
-    refreshPeriod = "168h"
-["{{ $fontDir }}/CaskaydiaCoveNerdFontMono-Regular.ttf"]
-    type = "file"
-    url = "https://github.com/ryanoasis/nerd-fonts/raw/master/patched-fonts/CascadiaCode/Regular/CaskaydiaCoveNerdFontMono-Regular.ttf"
-    refreshPeriod = "168h"
-["{{ $fontDir }}/CaskaydiaCoveNerdFontMono-Italic.ttf"]
-    type = "file"
-    url = "https://github.com/ryanoasis/nerd-fonts/raw/master/patched-fonts/CascadiaCode/Regular/CaskaydiaCoveNerdFontMono-Italic.ttf"
+    url = "https://github.com/ryanoasis/nerd-fonts/raw/master/patched-fonts/CascadiaCode/CaskaydiaCoveNerdFont-Italic.ttf"
     refreshPeriod = "168h"
 ["{{ $fontDir }}/CaskaydiaCoveNerdFont-Bold.ttf"]
     type = "file"
-    url = "https://github.com/ryanoasis/nerd-fonts/raw/master/patched-fonts/CascadiaCode/Bold/CaskaydiaCoveNerdFont-Bold.ttf"
+    url = "https://github.com/ryanoasis/nerd-fonts/raw/master/patched-fonts/CascadiaCode/CaskaydiaCoveNerdFont-Bold.ttf"
     refreshPeriod = "168h"
 ["{{ $fontDir }}/CaskaydiaCoveNerdFont-BoldItalic.ttf"]
     type = "file"
-    url = "https://github.com/ryanoasis/nerd-fonts/raw/master/patched-fonts/CascadiaCode/Bold/CaskaydiaCoveNerdFont-BoldItalic.ttf"
+    url = "https://github.com/ryanoasis/nerd-fonts/raw/master/patched-fonts/CascadiaCode/CaskaydiaCoveNerdFont-BoldItalic.ttf"
+    refreshPeriod = "168h"
+["{{ $fontDir }}/CaskaydiaCoveNerdFontMono-Regular.ttf"]
+    type = "file"
+    url = "https://github.com/ryanoasis/nerd-fonts/raw/master/patched-fonts/CascadiaCode/CaskaydiaCoveNerdFontMono-Regular.ttf"
+    refreshPeriod = "168h"
+["{{ $fontDir }}/CaskaydiaCoveNerdFontMono-Italic.ttf"]
+    type = "file"
+    url = "https://github.com/ryanoasis/nerd-fonts/raw/master/patched-fonts/CascadiaCode/CaskaydiaCoveNerdFontMono-Italic.ttf"
     refreshPeriod = "168h"
 ["{{ $fontDir }}/CaskaydiaCoveNerdFontMono-Bold.ttf"]
     type = "file"
-    url = "https://github.com/ryanoasis/nerd-fonts/raw/master/patched-fonts/CascadiaCode/Bold/CaskaydiaCoveNerdFontMono-Bold.ttf"
+    url = "https://github.com/ryanoasis/nerd-fonts/raw/master/patched-fonts/CascadiaCode/CaskaydiaCoveNerdFontMono-Bold.ttf"
     refreshPeriod = "168h"
 ["{{ $fontDir }}/CaskaydiaCoveNerdFontMono-BoldItalic.ttf"]
     type = "file"
-    url = "https://github.com/ryanoasis/nerd-fonts/raw/master/patched-fonts/CascadiaCode/Bold/CaskaydiaCoveNerdFontMono-BoldItalic.ttf"
+    url = "https://github.com/ryanoasis/nerd-fonts/raw/master/patched-fonts/CascadiaCode/CaskaydiaCoveNerdFontMono-BoldItalic.ttf"
     refreshPeriod = "168h"
 {{-   if (eq .chezmoi.os "linux") }}
 {{-     if (eq .chezmoi.osRelease.id "fedora") }}
