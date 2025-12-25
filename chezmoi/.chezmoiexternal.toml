@@ -53,6 +53,10 @@
     type = "file"
     url = "https://github.com/ryanoasis/nerd-fonts/raw/master/patched-fonts/CascadiaCode/CaskaydiaCoveNerdFontMono-BoldItalic.ttf"
     refreshPeriod = "168h"
+["{{ $fontDir }}/FiraCodeNerdFont-Retina.ttf"]
+    type = "file"
+    url = "https://github.com/ryanoasis/nerd-fonts/raw/master/patched-fonts/FiraCode/Retina/FiraCodeNerdFont-Retina.ttf"
+    refreshPeriod = "168h"
 {{-   if (eq .chezmoi.os "linux") }}
 {{-     if (eq .chezmoi.osRelease.id "fedora") }}
 [".local/bin/gnome-shell-extension-installer"]
