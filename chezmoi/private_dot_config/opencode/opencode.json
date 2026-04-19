@@ -1,0 +1,105 @@
+{
+  "$schema": "https://opencode.ai/config.json",
+  "small_model": "llama.cpp/qwen3.5-0.8b",
+  "provider": {
+    "llama.cpp": {
+      "npm": "@ai-sdk/openai-compatible",
+      "name": "llama.cpp",
+      "options": {
+        "baseURL": "{env:LLAMA_CPP_BASE_URL}",
+        "apiKey": "{env:LLAMA_CPP_API_KEY}",
+        "timeout": 600000
+      },
+      "models": {
+        "qwen3.6-35b-a3b:coding": {
+          "name": "qwen3.6-35b-a3b:coding",
+          "limit": {
+            "context": 100000,
+            "output": 32000
+          }
+        },
+        "qwen3.5-0.8b": {
+          "name": "qwen3.5-0.8b",
+          "limit": {
+            "context": 32768,
+            "output": 4000
+          }
+        },
+        "qwen3.5-27b:coding": {
+          "name": "qwen3.5-27b:coding",
+          "limit": {
+            "context": 85000,
+            "output": 32000
+          }
+        },
+        "qwen3.5-35b-a3b:coding": {
+          "name": "qwen3.5-35b-a3b:coding",
+          "limit": {
+            "context": 240000,
+            "output": 32000
+          }
+        },
+        "qwen3.5-122b-a10b:coding": {
+          "name": "qwen3.5-122b-a10b:coding",
+          "limit": {
+            "context": 80000,
+            "output": 32000
+          }
+        },
+        "qwen3-coder-next-80b-a3b": {
+          "name": "qwen3-coder-next-80b-a3b",
+          "limit": {
+            "context": 100000,
+            "output": 32000
+          }
+        },
+        "glm-4.7-flash-30b-a3b:tools": {
+          "name": "glm-4.7-flash-30b-a3b:tools",
+          "limit": {
+            "context": 99000,
+            "output": 32000
+          }
+        },
+        "nvidia-nemotron-3-nano-30b-a3b:tools": {
+          "name": "nvidia-nemotron-3-nano-30b-a3b:tools",
+          "limit": {
+            "context": 74000,
+            "output": 32000
+          }
+        },
+        "nvidia-nemotron-3-super-120b-a12b:tools": {
+          "name": "nvidia-nemotron-3-super-120b-a12b:tools",
+          "limit": {
+            "context": 150000,
+            "output": 32000
+          }
+        },
+        "gemma-4-31b": {
+          "name": "gemma-4-31b",
+          "limit": {
+            "context": 56000,
+            "output": 32000
+          }
+        },
+        "gemma-4-26b-a4b": {
+          "name": "gemma-4-26b-a4b",
+          "limit": {
+            "context": 156000,
+            "output": 32000
+          }
+        },
+      }
+    }
+  },
+  "mcp": {
+    "context7": {
+      "type": "local",
+      "command": [
+        "npx",
+        "-y",
+        "@upstash/context7-mcp"
+      ],
+      "enabled": true
+    },
+  }
+}
