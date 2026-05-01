@@ -32,20 +32,6 @@
             "output": 4000
           }
         },
-        "qwen3.5-27b:coding": {
-          "name": "qwen3.5-27b:coding",
-          "limit": {
-            "context": 157000,
-            "output": 32000
-          }
-        },
-        "qwen3.5-35b-a3b:coding": {
-          "name": "qwen3.5-35b-a3b:coding",
-          "limit": {
-            "context": 240000,
-            "output": 32000
-          }
-        },
         "qwen3.5-122b-a10b:coding": {
           "name": "qwen3.5-122b-a10b:coding",
           "limit": {
