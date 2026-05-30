@@ -11,6 +11,13 @@
         "timeout": 600000
       },
       "models": {
+        "qwen3.6-27b-ik": {
+          "name": "qwen3.6-27b-ik",
+          "limit": {
+            "context": 128000,
+            "output": 32000
+          }
+        },
         "qwen3.6-27b:coding": {
           "name": "qwen3.6-27b:coding",
           "limit": {
