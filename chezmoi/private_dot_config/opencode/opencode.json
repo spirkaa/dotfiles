@@ -11,25 +11,69 @@
         "timeout": 600000
       },
       "models": {
+        "qwen3.8-27b-ik": {
+          "name": "qwen3.8-27b-ik",
+          "limit": {
+            "context": 130000,
+            "output": 32000
+          }
+        },
+        "qwen3.8-27b-ik:xhigh": {
+          "name": "qwen3.8-27b-ik:xhigh",
+          "limit": {
+            "context": 130000,
+            "output": 32000
+          }
+        },
+        "qwen3.8-27b": {
+          "name": "qwen3.8-27b",
+          "limit": {
+            "context": 130000,
+            "output": 32000
+          },
+          "modalities": {
+            "input": ["text", "image"],
+            "output": ["text"]
+          }
+        },
+        "qwen3.8-27b:xhigh": {
+          "name": "qwen3.8-27b:xhigh",
+          "limit": {
+            "context": 130000,
+            "output": 32000
+          },
+          "modalities": {
+            "input": ["text", "image"],
+            "output": ["text"]
+          }
+        },
         "qwen3.6-27b-ik": {
           "name": "qwen3.6-27b-ik",
           "limit": {
-            "context": 128000,
+            "context": 130000,
             "output": 32000
           }
         },
         "qwen3.6-27b:coding": {
           "name": "qwen3.6-27b:coding",
           "limit": {
-            "context": 128000,
+            "context": 120000,
             "output": 32000
+          },
+          "modalities": {
+            "input": ["text", "image"],
+            "output": ["text"]
           }
         },
         "qwen3.6-35b-a3b:coding": {
           "name": "qwen3.6-35b-a3b:coding",
           "limit": {
-            "context": 157000,
+            "context": 200000,
             "output": 32000
+          },
+          "modalities": {
+            "input": ["text", "image"],
+            "output": ["text"]
           }
         },
         "qwen3.5-0.8b": {
@@ -42,7 +86,7 @@
         "qwen3.5-122b-a10b:coding": {
           "name": "qwen3.5-122b-a10b:coding",
           "limit": {
-            "context": 80000,
+            "context": 65000,
             "output": 32000
           }
         },
@@ -56,36 +100,44 @@
         "glm-4.7-flash-30b-a3b:tools": {
           "name": "glm-4.7-flash-30b-a3b:tools",
           "limit": {
-            "context": 99000,
+            "context": 120000,
             "output": 32000
           }
         },
         "nvidia-nemotron-3-nano-30b-a3b:tools": {
           "name": "nvidia-nemotron-3-nano-30b-a3b:tools",
           "limit": {
-            "context": 74000,
+            "context": 170000,
             "output": 32000
           }
         },
         "nvidia-nemotron-3-super-120b-a12b:tools": {
           "name": "nvidia-nemotron-3-super-120b-a12b:tools",
           "limit": {
-            "context": 150000,
+            "context": 120000,
             "output": 32000
           }
         },
         "gemma-4-31b": {
           "name": "gemma-4-31b",
           "limit": {
-            "context": 128000,
+            "context": 80000,
             "output": 32000
+          },
+          "modalities": {
+            "input": ["text", "image"],
+            "output": ["text"]
           }
         },
         "gemma-4-26b-a4b": {
           "name": "gemma-4-26b-a4b",
           "limit": {
-            "context": 248000,
+            "context": 262144,
             "output": 32000
+          },
+          "modalities": {
+            "input": ["text", "image"],
+            "output": ["text"]
           }
         },
       }
