@@ -140,6 +140,13 @@
             "output": ["text"]
           }
         },
+        "laguna-s-2.1-118b-a8b": {
+          "name": "laguna-s-2.1-118b-a8b",
+          "limit": {
+            "context": 130000,
+            "output": 32000
+          }
+        },
       }
     }
   },
