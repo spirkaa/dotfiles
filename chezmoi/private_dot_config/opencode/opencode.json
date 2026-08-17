@@ -147,6 +147,28 @@
             "output": 32000
           }
         },
+        "muse-glimmer-30b": {
+          "name": "muse-glimmer-30b",
+          "limit": {
+            "context": 130000,
+            "output": 32000
+          },
+          "modalities": {
+            "input": ["text", "image"],
+            "output": ["text"]
+          }
+        },
+        "muse-glimmer-30b:xhigh": {
+          "name": "muse-glimmer-30b:xhigh",
+          "limit": {
+            "context": 130000,
+            "output": 32000
+          },
+          "modalities": {
+            "input": ["text", "image"],
+            "output": ["text"]
+          }
+        },
       }
     }
   },
