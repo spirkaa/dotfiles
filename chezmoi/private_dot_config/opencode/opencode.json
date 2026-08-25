@@ -11,6 +11,20 @@
         "timeout": 600000
       },
       "models": {
+        "qwen3.8-27b-single": {
+          "name": "qwen3.8-27b-single",
+          "limit": {
+            "context": 130000,
+            "output": 32000
+          }
+        },
+        "qwen3.8-27b-single:xhigh": {
+          "name": "qwen3.8-27b-single:xhigh",
+          "limit": {
+            "context": 130000,
+            "output": 32000
+          }
+        },
         "qwen3.8-27b-ik": {
           "name": "qwen3.8-27b-ik",
           "limit": {
