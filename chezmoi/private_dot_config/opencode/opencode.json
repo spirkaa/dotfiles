@@ -11,6 +11,38 @@
         "timeout": 600000
       },
       "models": {
+        "qwen3.8-27b-dual": {
+          "name": "qwen3.8-27b-dual",
+          "limit": {
+            "context": 262144,
+            "output": 32000
+          },
+          "modalities": {
+            "input": [
+              "text",
+              "image"
+            ],
+            "output": [
+              "text"
+            ]
+          }
+        },
+        "qwen3.8-27b-dual:xhigh": {
+          "name": "qwen3.8-27b-dual:xhigh",
+          "limit": {
+            "context": 262144,
+            "output": 32000
+          },
+          "modalities": {
+            "input": [
+              "text",
+              "image"
+            ],
+            "output": [
+              "text"
+            ]
+          }
+        },
         "qwen3.8-27b-single": {
           "name": "qwen3.8-27b-single",
           "limit": {
@@ -77,29 +109,6 @@
           "name": "qwen3.8-27b:xhigh",
           "limit": {
             "context": 130000,
-            "output": 32000
-          },
-          "modalities": {
-            "input": [
-              "text",
-              "image"
-            ],
-            "output": [
-              "text"
-            ]
-          }
-        },
-        "qwen3.6-27b-ik": {
-          "name": "qwen3.6-27b-ik",
-          "limit": {
-            "context": 130000,
-            "output": 32000
-          }
-        },
-        "qwen3.6-27b:coding": {
-          "name": "qwen3.6-27b:coding",
-          "limit": {
-            "context": 120000,
             "output": 32000
           },
           "modalities": {
@@ -240,7 +249,7 @@
               "text"
             ]
           }
-        },
+        }
       }
     }
   },
@@ -253,6 +262,6 @@
         "@upstash/context7-mcp"
       ],
       "enabled": true
-    },
+    }
   }
 }
