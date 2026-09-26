@@ -43,6 +43,38 @@
             ]
           }
         },
+        "qwen3.8-27b-dual-int4": {
+          "name": "qwen3.8-27b-dual-int4",
+          "limit": {
+            "context": 262144,
+            "output": 32000
+          },
+          "modalities": {
+            "input": [
+              "text",
+              "image"
+            ],
+            "output": [
+              "text"
+            ]
+          }
+        },
+        "qwen3.8-27b-dual-int4:xhigh": {
+          "name": "qwen3.8-27b-dual-int4:xhigh",
+          "limit": {
+            "context": 262144,
+            "output": 32000
+          },
+          "modalities": {
+            "input": [
+              "text",
+              "image"
+            ],
+            "output": [
+              "text"
+            ]
+          }
+        },
         "qwen3.8-27b-single": {
           "name": "qwen3.8-27b-single",
           "limit": {
@@ -75,24 +107,10 @@
             ]
           }
         },
-        "qwen3.8-27b-ik": {
-          "name": "qwen3.8-27b-ik",
+        "qwen3.8-flash-next": {
+          "name": "qwen3.8-flash-next",
           "limit": {
-            "context": 130000,
-            "output": 32000
-          }
-        },
-        "qwen3.8-27b-ik:xhigh": {
-          "name": "qwen3.8-27b-ik:xhigh",
-          "limit": {
-            "context": 130000,
-            "output": 32000
-          }
-        },
-        "qwen3.8-27b": {
-          "name": "qwen3.8-27b",
-          "limit": {
-            "context": 130000,
+            "context": 131072,
             "output": 32000
           },
           "modalities": {
@@ -105,10 +123,10 @@
             ]
           }
         },
-        "qwen3.8-27b:xhigh": {
-          "name": "qwen3.8-27b:xhigh",
+        "qwen3.8-flash-next:xhigh": {
+          "name": "qwen3.8-flash-next:xhigh",
           "limit": {
-            "context": 130000,
+            "context": 131072,
             "output": 32000
           },
           "modalities": {
@@ -148,13 +166,6 @@
           "name": "qwen3.5-122b-a10b:coding",
           "limit": {
             "context": 65000,
-            "output": 32000
-          }
-        },
-        "qwen3-coder-next-80b-a3b": {
-          "name": "qwen3-coder-next-80b-a3b",
-          "limit": {
-            "context": 100000,
             "output": 32000
           }
         },
